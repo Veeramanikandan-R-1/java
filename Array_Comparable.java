@@ -23,7 +23,7 @@ class Car implements Comparable {
     }
 }
 
-public class Main {
+public class Array_Comparable {
 
     public static void main(String[] args) {
         ArrayList<Car> arr1 = new ArrayList<Car>();

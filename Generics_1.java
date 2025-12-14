@@ -10,7 +10,7 @@ class Box<T> {
     }
 }
 
-public class Main {
+public class Generics_1 {
 
     public static void main(String[] args) {
         Box<Integer> boxObj = new Box<>();

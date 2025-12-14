@@ -15,7 +15,7 @@ class Solution {
     }
 }
 
-public class Main {
+public class Anagram {
 
     public static void main(String[] args) {
         Solution solObj = new Solution();
