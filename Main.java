@@ -1,32 +1,29 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
-class Student {
-    int age;
-    String name;
-
-    public Student(int a, String s) {
-        this.age = a;
-        this.name = s;
+record Student (int id, String name) {
+    
+    // overwriting default constructor not recommended
+    Student(){
+        this(0, "");
     }
-}
 
-public class Main {
-
-    public static void main(String[] args) {
-        List<Student> listObj = new ArrayList<>();
-        listObj.add(new Student(21, "Mani"));
-        listObj.add(new Student(19, "Harish"));
-        listObj.add(new Student(42, "Rani"));
-
-        Comparator<Student> comp = (i, j) -> i.age > j.age ? 1 : -1;
-
-        Collections.sort(listObj, comp);
-        for (Student stud : listObj) {
-            System.out.println(stud.name);
-            System.out.println(stud.age);
+    // compact canonical constructor
+    public Student{
+        // adding only check for id
+        if(id==0){
+            throw new IllegalArgumentException("Id with value 0 not allowed");
         }
+        
+    }
+};
+
+public class Main{
+    public static void main(String[] args){
+        Student studObj = new Student(1, "mani");
+        Student studObj1 = new Student(1, "mani");
+
+        // print directly
+        System.out.println(studObj);
+        // compare equals object
+        System.out.println(studObj.equals(studObj1));
+
     }
 }
