@@ -5,6 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
+<<<<<<< HEAD
             "type": "java",
             "name": "Reverse",
             "request": "launch",
@@ -16,6 +17,11 @@
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
+=======
+            "type": "jdk",
+            "request": "launch",
+            "name": "Launch Java App"
+>>>>>>> 1952578f7e6741a820885e6231ae2a5aab73c878
         }
     ]
 }
