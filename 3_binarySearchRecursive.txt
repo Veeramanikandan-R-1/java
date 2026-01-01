@@ -1,0 +1,25 @@
+public class Main{
+    public static int BinarySearchRec(int[] inputArr, int targetElement, int left,int right){      
+        while(left <= right){
+            int mid = left + (right-left)/2;
+            int midElmnt = inputArr[mid];
+            if(midElmnt==targetElement){
+                return  1;
+            }else{
+                if(midElmnt<targetElement){
+                    return BinarySearchRec(inputArr, targetElement, mid+1, right);
+                }else{
+                    return BinarySearchRec(inputArr, targetElement, left, mid-1);
+                }
+            }
+        }
+        return -1;
+
+    }
+    public static void main(String[] args) {
+        int[] testArr = {1,5,6,5,43};
+        System.out.println(testArr);
+        int result = BinarySearchRec(testArr, 15, 0, testArr.length);
+        System.out.println("result: "+result);
+    }
+}
