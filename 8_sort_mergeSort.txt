@@ -1,0 +1,74 @@
+public class Main{   
+    public static void main(String[] args) {
+        int[] testArr = {111,5,6,5,43};
+        System.out.println("before sort: ");
+        for(int num:testArr){
+            System.out.print(num+" ");
+        }
+        System.out.println();
+        MergeSort(testArr,0,testArr.length-1);
+        System.out.println("after sort: ");
+        for(int num:testArr){
+            System.out.print(num+" ");
+        }
+    }
+
+    private static void MergeSort(int[] testArr, int left, int right) {
+        if(left<right){
+            int mid = left+(right-left)/2;
+            System.out.println("mid: "+mid);
+            MergeSort(testArr, left, mid);
+            MergeSort(testArr, mid+1, right);
+            System.out.println("after two sort: ");
+            for(int num:testArr){
+                System.out.print(num+" ");
+            }
+            System.out.println();
+            merge(testArr, left, mid, right);
+        }
+    }
+
+    private static void merge(int[] testArr, int left, int mid, int right) {
+        int n1 = mid-left+1;
+        int n2 = right-mid;
+        System.out.println("n1: "+n1+" n2: "+n2);
+        int[] L =  new int[n1];
+        int[] R =  new int[n2];
+
+        for(int i =0; i<n1; ++i)
+            L[i] = testArr[left+i];
+        for(int j =0; j<n2; ++j)
+            R[j] = testArr[mid+1+j];
+
+        int i = 0; 
+        int j =0;
+        int k = left;
+
+        while(i<n1 && j<n2){
+            if(L[i]<=R[j]){
+                testArr[k] = L[i];
+                i++;
+            }else{
+                testArr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i<n1) { 
+            testArr[k] = L[i];
+            k++; i++;
+        }
+
+        while (j<n2) { 
+            testArr[k] = R[j];
+            k++; j++;
+        }
+
+        System.out.println("end of merge util: ");
+        for(int num:testArr){
+            System.out.print(num+" ");
+        }
+        System.out.println();
+    }
+}

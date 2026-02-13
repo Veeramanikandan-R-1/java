@@ -1,0 +1,51 @@
+public class Main{
+    public static int Partition(int[] arr, int low, int high){
+        int pivot = arr[high];
+        System.out.println("arr: ");
+        for(int num:arr){
+            System.out.print(num+" ");
+        }
+        System.out.println();
+        System.out.println("pivot"+pivot);
+        int i = low-1;
+        for(int j = low; j<high;j++){
+            if(arr[j]<pivot){
+                i++;
+                int temp = arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+            System.out.println("loop: ");
+            for(int num:arr){
+                System.out.print(num+" ");
+            }
+            System.out.println();
+        }
+        int temp = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp;
+        System.out.println("swap: ");
+        for(int num:arr){
+            System.out.print(num+" ");
+        }
+        System.out.println();
+        return i+1;
+    }
+    public static void QuickSort(int[] inputArr, int low, int high){
+        System.out.println("low: "+low+" high: "+high);     
+        if(low<high){
+            int pivotIndex = Partition(inputArr, low, high);
+            System.out.println("pivotIndex "+pivotIndex);
+            QuickSort(inputArr, low, pivotIndex-1);
+            QuickSort(inputArr, pivotIndex+1, high);
+        }
+    }
+    public static void main(String[] args) {
+        int[] testArr = {111,5,6,5,43};
+        QuickSort(testArr,0,testArr.length-1);
+        System.out.println("result: ");
+        for(int num:testArr){
+            System.out.print(num+" ");
+        }
+    }
+}
